@@ -1,0 +1,10 @@
+# general .gitignore
+*.swp
+*.sqlite
+.DS_Store
+
+# python .gitignore
+/venv
+/.cache
+/__pycache__
+*.pyc
