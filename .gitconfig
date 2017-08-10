@@ -1,0 +1,27 @@
+[user]
+    name = Jonathan Hadisuryo
+    email = jonathan.hadisuryo@gmail.com
+
+[color]
+    ui = true
+    diff = auto
+    status = auto
+    branch = auto
+
+[color "diff"]
+    meta = magenta bold
+    frag = yellow bold
+    old = red
+    new = blue
+
+[color "status"]
+    added = yellow
+    changed = blue
+
+[color "branch"]
+    current = blue
+    local = yellow
+    remote = magenta
+
+[core]
+    excludesfile = ~/.gitignore_global
