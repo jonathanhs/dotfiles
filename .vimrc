@@ -1,4 +1,4 @@
-"""Begin Vundle
+""""" vundle vim plugins
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -13,9 +13,9 @@ Plugin 'tpope/vim-fugitive'                 "Git command
 Plugin 'kylef/apiblueprint.vim'             "API blueprint syntax highlighting
 Plugin 'scrooloose/nerdtree'                "File navigation
     map <C-n> :NERDTreeToggle<CR>
-    autocmd bufenter * 
+    autocmd bufenter *
       \ if (winnr("$") == 1 &&
-          \ exists("b:NERDTreeType") && 
+          \ exists("b:NERDTreeType") &&
           \ b:NERDTreeType == "primary") |
           \ q |
       \ endif
@@ -44,70 +44,102 @@ Plugin 'bling/vim-airline'                  "Better status line
 
 call vundle#end()
 filetype plugin on
-"""End Vundle
 
-"Available Commands
-""Exit""
-" :q or :q!     Quit
-" :w or :w!     Save
-" :wq           Save and quit
-"
-""Text""
-" i             Insert text
-" dd            Delete line
-" y             Copy
-" p             Paste
-" u             Undo
-" e             Forward per word
-" b             Backward per word
-" :e {filename} New file in insert mode
-" /{pattern}    Search
 
-"General settings
-set cursorline          "Highlight current line
-set hls                 "Highlight search
-set cc=80               "Set column to 80 characters marked with colored line
-set tw=80               "Automatic word wrapping
-set relativenumber      "Display line numbers relative to the line with the
-                        "cursor
-set number              "Display line numbers
-colorscheme jellybeans  "Change colorscheme from default to jellybeans
-syntax on               "Colored programming syntax
+""""" general settings
+" :q or :q!         quit
+" :w or :w!         save
+" :wq               save and quit
+" i                 insert text
+" dd                delete line
+" y                 copy
+" p                 paste
+" u                 undo
+" e                 forward per word
+" b                 backward per word
+" z=                spelling alternatives
+" :e {filename}     new file in insert mode
+" /{pattern}        search
+
+set backspace=indent,eol,start      " enable backspace
+set cc=80                           " 80 chars limit indicator
+set clipboard=unnamed               " copying from terminal buffer
+set cursorcolumn                    " highlight cursor column
+set cursorline                      " highlight cursor line
+set history=500                     " 500 past commands
+set number                          " display line numbers
+set relativenumber                  " relative line number
+set ruler                           " display cursor position
+set showmatch                       " display matching tag cursor
+set tw=80                           " automatic word wrapping
+set undolevels=1000                 " undo max number
+set wildmode=longest,list           " display tab completion
+
+" extra settings
+syntax on                           " colored programming syntax
+colorscheme jellybeans              " vim color scheme
 highlight ColorColumn ctermbg=124
+highlight CursorColumn ctermbg=236
 
-"Tabspacing
-set ts=4                "Set tabspacing to be 4
-set expandtab           "Expand tabs into spaces
-set softtabstop=4       "Backspace -> delete 4 spaces
+" eliminate trailing whitespaces
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
-"Folds
-set foldenable          "Enable folding
-set foldlevelstart=0    "Start out with everything folded
-set foldmethod=syntax   "Fold by per-language-syntax
-let g:php_folding=1     "PHP folding
+" folds
+"set foldenable                     " enable folding
+"set foldlevelstart=0               " start out with everything folded
+"set foldmethod=indent              " fold by indentation
+set nofoldenable                    " disable folding
 
-"If we forget to open file with sudo
-cmap w!! %!sudo tee > /dev/null %
+" indentation
+set autoindent                      " auto indentation
+set copyindent                      " copy indentation
 
-"Set leader to ,
+" search
+set hlsearch                        " highlight search occurrences
+set incsearch                       " display all search occurrences
+set smartcase
+
+" spelling
+set spell                           " enable spelling
+setlocal spell spelllang=en_us      " set spelling to US English
+
+" tabs
+set expandtab                       " expand tabs into spaces
+set softtabstop=4                   " backspace -> delete 4 spaces
+set ts=4                            " set tab spacing to be 4
+
+
+""""" shortcuts
+" set leader to ,
 let mapleader=","
 let g:mapleader=","
 
-"Find all todo
-noremap <Leader>t :noautocmd vimgrep /TODO/j **/*\.php <CR>:cw<CR>
+" open and save file with sudo permission
+cmap w!! w !sudo tee % > /dev/null
 
-"Folding
+" find all todo
+noremap <Leader>t :noautocmd vimgrep /TODO/j **/*\.py **/*\.php <CR>:cw<CR>
+
+" folds
 nnoremap <Space> zA
 vnoremap <Space> zA
 nnoremap <c-x> za
 vnoremap <c-x> za
 
-"Window split
-noremap <silent> <S-v> :vsplit<CR>
-noremap <silent> <S-h> :split<CR>
-
-"Tabs
+" tabs
 noremap <silent> <S-n> :tabnext<CR>
 noremap <silent> <S-p> :tabprevious<CR>
 noremap <silent> <S-t> :tabnew<CR>
 noremap <silent> <S-x> :tabclose<CR>
+
+" window split
+noremap <silent> <S-v> :vsplit<CR>
+noremap <silent> <S-h> :split<CR>
+
+" auto-create non-existing directory when opening a file
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * if expand("<afile>")!~#'^\w\+:/' &&
+        \ !isdirectory(expand("%:h")) | execute
+        \ "silent! !mkdir -p ".shellescape(expand('%:h'), 1) | redraw! | endif
+augroup END
