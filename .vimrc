@@ -4,46 +4,64 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-"List of plugins
-Plugin 'gmarik/Vundle.vim'                  "Main vundle plugin
-Plugin 'Raimondi/delimitMate'               "Insert matching braces
-Plugin 'gregsexton/MatchTag'                "HTML match tag
-Plugin 'airblade/vim-gitgutter'             "Git diff inside Vim
-Plugin 'tpope/vim-fugitive'                 "Git command
-Plugin 'kylef/apiblueprint.vim'             "API blueprint syntax highlighting
-Plugin 'scrooloose/nerdtree'                "File navigation
+Plugin 'VundleVim/Vundle.vim'                           " main vundle plugin
+Plugin 'airblade/vim-gitgutter'                         " git diff inside vim
+Plugin 'gregsexton/MatchTag'                            " html match tag
+Plugin 'kien/ctrlp.vim'                                 " fuzzy-finder file
+    set wildignore+=*/tmp/*,*.pyc,*.so,*.swp,*.zip
+    let g:ctrlp_custom_ignore = {
+        \ 'dir': '\v[\/](venv|\.(git|hg|svn))$'
+        \ }
+Plugin 'kylef/apiblueprint.vim'                         " api blueprint syntax highlighting
+Plugin 'Raimondi/delimitMate'                           " insert mode auto-completion
+Plugin 'scrooloose/nerdtree'                            " file navigation
     map <C-n> :NERDTreeToggle<CR>
     autocmd bufenter *
-      \ if (winnr("$") == 1 &&
-          \ exists("b:NERDTreeType") &&
-          \ b:NERDTreeType == "primary") |
-          \ q |
-      \ endif
-Plugin 'kien/ctrlp.vim'                     "Fuzzy-finder file
-    set wildignore+=*/tmp/*,*.swp,*.zip
-    let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-      \ }
-Plugin 'terryma/vim-multiple-cursors'       "Multiple cursor
-    let g:multi_cursor_start_key='<F2>'
-Plugin 'vim-airline/vim-airline-themes'     "Vim airline themes
-Plugin 'bling/vim-airline'                  "Better status line
+        \ if (winnr("$") == 1 &&
+            \ exists("b:NERDTreeType") &&
+            \ b:NERDTreeType == "primary") |
+            \ q |
+        \ endif
+Plugin 'tpope/vim-fugitive'                             " git wrapper
+Plugin 'vim-airline/vim-airline'                        " vim status line
+Plugin 'vim-airline/vim-airline-themes'                 " vim airline themes
     set laststatus=2
-    let g:airline#extensions#tabline#enabled=1
-    let g:airline_theme='light'
-    let g:airline_left_sep='▶'
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+    endif
+    let g:airline_theme = 'luna'
+    let g:airline_left_sep = '⮀'
+    let g:airline_right_sep = '⮂'
+    let g:airline_left_alt_sep = '⮁'
+    let g:airline_right_alt_sep = '⮃'
+    let g:airline_symbols.branch = '⭠'
+    let g:airline_symbols.linenr = '⭡'
+    let g:airline_symbols.readonly = '⭤'
+    let g:airline#extensions#tabline#enabled = 1
     function! AirlineInit()
         let g:airline_section_a = airline#section#create(['mode',' ','branch'])
-        let g:airline_section_b = airline#section#create(['%f'])
+        let g:airline_section_b = airline#section#create_left(['ffenc','hunks','%f'])
         let g:airline_section_c = airline#section#create(['filetype'])
         let g:airline_section_x = airline#section#create(['%P'])
         let g:airline_section_y = airline#section#create(['%B'])
-        let g:airline_section_z = airline#section#create(['%l'])
+        let g:airline_section_z = airline#section#create_right(['%l','%c'])
     endfunction
     autocmd VimEnter * call AirlineInit()
+Plugin 'vim-syntastic/syntastic'                        " syntax checking plugin
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+    let g:syntastic_check_on_wq = 0
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_always_populate_loc_list = 1
+
+"Plugin 'majutsushi/tagbar'                             class outline viewer
+"Plugin 'terryma/vim-multiple-cursors'                  vim multiple cursors
+"Plugin 'Valloric/YouCompleteMe'                        code-completion engine
 
 call vundle#end()
-filetype plugin on
+filetype plugin indent on
 
 
 """"" general settings
