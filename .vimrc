@@ -18,9 +18,9 @@ Plugin 'scrooloose/nerdtree'                            " file navigation
     map <C-n> :NERDTreeToggle<CR>
     autocmd bufenter *
         \ if (winnr("$") == 1 &&
-            \ exists("b:NERDTreeType") &&
-            \ b:NERDTreeType == "primary") |
-            \ q |
+            \ exists("b:NERDTree") &&
+            \ b:NERDTree.isTabTree()) |
+                \ q |
         \ endif
 Plugin 'tpope/vim-fugitive'                             " git wrapper
 Plugin 'vim-airline/vim-airline'                        " vim status line
