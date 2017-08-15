@@ -17,6 +17,6 @@ fi
 # install vim plugins
 mkdir ~/.vim/bundle
 cd ~/.vim/bundle
-git clone https://github.com/gmarik/Vundle.vim.git
+git clone https://github.com/VundleVim/Vundle.vim.git
 cd ~
 vim +PluginInstall +qall
