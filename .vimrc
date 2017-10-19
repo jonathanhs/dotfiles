@@ -51,12 +51,13 @@ Plugin 'vim-syntastic/syntastic'                        " syntax checking plugin
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
-    let g:syntastic_check_on_wq = 0
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_auto_loc_list = 1
     let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
 
 "Plugin 'majutsushi/tagbar'                             class outline viewer
+"Plugin 'python-mode/python-mode'                       vim python mode
 "Plugin 'terryma/vim-multiple-cursors'                  vim multiple cursors
 "Plugin 'Valloric/YouCompleteMe'                        code-completion engine
 
@@ -136,7 +137,7 @@ let g:mapleader=","
 cmap w!! w !sudo tee % > /dev/null
 
 " find all todo
-noremap <Leader>t :noautocmd vimgrep /TODO/j **/*\.py **/*\.php <CR>:cw<CR>
+noremap <Leader>t :noautocmd vimgrep /TODO/j **/*\.py <CR>:cw<CR>
 
 " folds
 nnoremap <Space> zA
