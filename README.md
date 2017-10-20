@@ -6,5 +6,4 @@ For setting up, run:
 
 ```shell
 > sudo sh setup.sh
-> source ~/.bashrc
 ```
