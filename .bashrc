@@ -1,6 +1,8 @@
 
 # add this block at the end of the file
 
+export DOCKER_ID="jonathanhs"
+
 export PS1='[\e[0;92m\u\e[m@\e[0;34m\h\e[m:\e[0;93m\w\e[m\e[0;31m$(__git_ps1 " (%s)")\e[m]\n>'
 export TERM="xterm-256color"
 
