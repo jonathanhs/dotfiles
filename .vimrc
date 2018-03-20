@@ -85,6 +85,7 @@ set cc=80                           " 80 chars limit indicator
 set clipboard=unnamed               " copying from terminal buffer
 set cursorcolumn                    " highlight cursor column
 set cursorline                      " highlight cursor line
+set encoding=utf-8                  " utf-8 encoding
 set history=500                     " 500 past commands
 set number                          " display line numbers
 set relativenumber                  " relative line number
