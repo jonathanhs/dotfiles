@@ -1,7 +1,7 @@
 # VERSION 0.1
 
-ARG version
-FROM python:$version
+ARG image
+FROM $image
 LABEL maintainer="jonathan.hadisuryo@gmail.com"
 
 # install basic packages
