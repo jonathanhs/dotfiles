@@ -11,7 +11,7 @@ env:
         - VERSION=16.04
         - VERSION=18.04
 script:
-    - docker build -t $ID/dev-vim:$TAG-ub$VERSION --build-arg VERSION=$VERSION
+    - docker build -t $ID/dev-vim:$TAG-ub$VERSION --build-arg VERSION=$VERSION .
 after_success:
     - docker images
 before_deploy:
