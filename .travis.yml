@@ -11,13 +11,13 @@ env:
         - VERSION=16.04
         - VERSION=18.04
 script:
-    - docker build -t ${ID}/dev-vim:$TAG-ub$VERSION --build-arg VERSION=$VERSION .
+    - docker build -t "${ID}/dev-vim:${TAG}-ub${VERSION}" --build-arg VERSION=$VERSION .
 after_success:
     - docker images
 before_deploy:
     - docker login -u $ID -p $KEY
 deploy:
     provider: script
-    script: docker push ${ID}/dev-vim:$TAG-ub$VERSION
+    script: docker push "${ID}/dev-vim:${TAG}-ub${VERSION}"
     on:
         branch: master
