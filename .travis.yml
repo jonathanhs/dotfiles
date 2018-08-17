@@ -4,8 +4,8 @@ services:
 env:
     global:
         - TAG=0.1
-        - secure: Jm2/3aPhrjvUwe7s1gjF8sJyINz6mKS9i1FhVTK0AQpQglSH3xlGKsq/u8Gg0G6EjXK6pobP50CkvMlTD89w31l//sLiybbcvNnd0eWh/kRLKV+J1FcC/c/waz6lrXhug4UDM3rEkUyW6cYm920OsyiBo6yxwOs5r48Cq2lVXDzvkCJ795OU7L/bGM8/E8hGYdJiWzfpT2tpXPYz3SlaPbI8MIs2cDN3los0eQmwjwr+yiU1DqHw2e2QravhcgA1+vGaJGUNzRRNcYrjKXEIIpXnyAkn56ZTlnqJwoXSdghk9BX6DrRpd0+cSedGWc4eTO1THV2PeGKnHwBjrploKKM7rNTVReNA/upIIgOkNFt01tDtna1JkDPye36HwrKBvmQ1HnaI3kYQMyGA1WQZAgioDTUZTXRXOjE9LDEu5QvgSs95egQl4k92iCFypu9zpOdLnGUTTjIkfUbWJUbvdO70II+0kCjvT9+vXdQyQjhYREg8hjP0FmtvdxVDw3I9AgPj4d/f/hPtbdc/QGFojE9skE8uB31vz3SNOUh6ZGQyTqSBDQJZFwFk6O+vC82FXlFjZSWB/EgU13+EKBaYXY8KSAWQ8FDTZzxsUfgsnwNE5sQQiJOLwwr+MSOaM8QYFDRGfGvhxfYGI6leJOm9Ao8R0p+CKzxL+M89wLYNmdg=
-        - secure: jgl7FaFcWG2vH4C2cBGjM66LRcFdaY/Jvxz2gXq2nNaiSa7ntlxeSXteiA+yDAx2Sd1eDII6s02D8yw3Uuoh1J4xo9TNvCio00KmugzvKQPVuu0rv2+U/MOcfjsvf3Y9p96ir1WRRRgL4fM+XsBozw79Ji8K6ExKaLYk+S0mBHWkGI7XJQvi1hSqYHlIDRXtlFHcnBocok93ZtnxRPJU0ff3OI1leqmXM8gI5mn8uIeKc8emJuUw5GE5xnlglKzdONFDyJxCqdu6UM71lvPrOIGP3ompFUq9cMREMX8XHil1gcSy4tAp6603TC/HE/PncBUcNZrC/FNY5IdMpAgh0nbVV99kAI1q1T1+cTyslRUM3/+FGNRS3DwcfCMcLde2NDjTjqf+U1fbfzl46L4Qd4dnYTP1FqYPQ8cL2r0Lm4gZbVCYv1wJs3ZVvyU1g8Yu2Wm7UHzMYZtLxWQCpErZL1irynwzUzlsHWdDg5f6SbeYxJCqJ/r4IPqibtKeYh9lJJHdo1vYg3gr9QB5ivfJhDrP1kCOuu5qZ6krC2AUNTVmjRvmB5B0f/K+AzvadhB213mhuCWW8FKNfoTPEfTw+XdaX+PlRSFND90o/XjoECde0UZL8CP/3KC3rO597RIQiRlnFooGVSbRoJ5XIpZyS3YBRfwsqKKS/pn0rDAbWis=
+        - secure: "Ap2/nLmnljIs7h5rWaNYHPj3d+cDcwNBAkHYK8nwXRTNzA5hYKZ0IbnU5l5dBYa69sYSHx23oa+0difVtapCBdj93W22u5358cyfnldQ1ckhdpm2nFpZOH8kqXUftGVAOfxD5Yr4xvdjMteHSZNCNo4/YaaEVhUp+uiHF9LMpINNigpq0j4jL7O0bmPnoLSd/FQ0lWEo3wRX1yOKofPaXRHSIgYZs8oYc7qcQCRWG0YnGIYuUV+I3IVWgTXp7rm53OldQKM5H0ju5pV3dPVl7XRyzb/oeLrQu3oJEbem6bRz2Ty8zk698JWR7CWaCYwmVM/7lyLNDD2l7CfJV76xXxk26CRR9fl/aTqvfdwZEleBK+Z5hN0PnG9BzvnvO25akj1Qywj70XeF8apGBB7scUB9/sJG09NbJ0Piu6PjUmDpm2xc23gdzOuS7DHRXxoqb3G8iJbfikJqJFh7c50mqxF+jrxjrWsOSZjbZeRW0r9n2HypXcQZGiAeIdUX2x0NQsL8j2ExMsQ/oPg+PQ6lQYQgnthK2NB/V+pG1Uqwoy7teTHPxu3tKVpIdkXlIjZ298mvPv9KixDh+nXLEpkN3/8lCERfa8E8PXyUTgGsuTrbmn8ZKKKaNw0PSLSQJJMPvomMBIcE/3CYweYqaz56bcOSUKpc/GO/3JiprBur6oE="
+        - secure: "WsfuNeqeUOYHGP+NvopxreJ4M3IRRQPZwLSEF3zEvXXP8fq7s1vUD9JaXwk9FF46ui16W3ys62nO+GiK4qagh/d+MNljRHSsx3xL4iU/5d1ik3tqxaIUyzH0tV47P8xZF5x1zi62+8U6jnpJUca3q985n1pr/8x3ktJYSxBB4ZnNmykBHNgMygZrMsKc7MdythhJxD1H7ZrDINsndiU405ZLO0N0vKfT6hoji5RhooEAJ0v42Y/NjwXl1N8Jpgb8qsMp+DeqBGSWUe8dTncIKRMDRGeoxJscYl4Vq+5cVzjcgOefZyJu1rQd8q3r2n0JhqyI/SeWr0JyZZlcMTmzHLKz7gXTpas0NxNo3U+hSHL19gwFYqMiddskdwVJLJrDpIrF0ngwfgQT7TzwTqMk6rH0MMHgUpgz1wxea3p2atJTK4+/kGe0X9g/yYNAQM0N5epYpNjqgrfTO2MHGCL7SZvJZzsPZqLh94deDnQzOmpjHJcb+K0BnZWhjuYNASqFnXs6Iqs0Dq1Id4EXDzitPgCEFZgzrSYWxD/JFYJg8UbENDNmanTE+1blCpRm9U5NkB0boxYfbq+nYYokNCFJMgOgUWeZC2l/Tfsk0vxDHOQVPc42+7WFwnipg42ii4BM2Kvc5bfrw4f6M0OH3b0Luma83pF14WGpPNU9nJJR/HQ="
     matrix:
         - VERSION=14.04
         - VERSION=16.04
@@ -15,7 +15,7 @@ script:
 after_success:
     - docker images
 before_deploy:
-    - echo "$KEY" | docker login -u "$ID" --password-stdin
+    - echo "$DOCKER_KEY" | docker login -u "$DOCKER_ID" --password-stdin
 deploy:
     provider: script
     script: docker push jonathanhs/dev-vim:$TAG-ub$VERSION
