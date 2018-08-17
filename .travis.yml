@@ -1,0 +1,23 @@
+sudo: required
+services:
+    - docker
+env:
+    global:
+        - TAG=0.1
+        - secure: "Jm2/3aPhrjvUwe7s1gjF8sJyINz6mKS9i1FhVTK0AQpQglSH3xlGKsq/u8Gg0G6EjXK6pobP50CkvMlTD89w31l//sLiybbcvNnd0eWh/kRLKV+J1FcC/c/waz6lrXhug4UDM3rEkUyW6cYm920OsyiBo6yxwOs5r48Cq2lVXDzvkCJ795OU7L/bGM8/E8hGYdJiWzfpT2tpXPYz3SlaPbI8MIs2cDN3los0eQmwjwr+yiU1DqHw2e2QravhcgA1+vGaJGUNzRRNcYrjKXEIIpXnyAkn56ZTlnqJwoXSdghk9BX6DrRpd0+cSedGWc4eTO1THV2PeGKnHwBjrploKKM7rNTVReNA/upIIgOkNFt01tDtna1JkDPye36HwrKBvmQ1HnaI3kYQMyGA1WQZAgioDTUZTXRXOjE9LDEu5QvgSs95egQl4k92iCFypu9zpOdLnGUTTjIkfUbWJUbvdO70II+0kCjvT9+vXdQyQjhYREg8hjP0FmtvdxVDw3I9AgPj4d/f/hPtbdc/QGFojE9skE8uB31vz3SNOUh6ZGQyTqSBDQJZFwFk6O+vC82FXlFjZSWB/EgU13+EKBaYXY8KSAWQ8FDTZzxsUfgsnwNE5sQQiJOLwwr+MSOaM8QYFDRGfGvhxfYGI6leJOm9Ao8R0p+CKzxL+M89wLYNmdg="
+        - secure: "jgl7FaFcWG2vH4C2cBGjM66LRcFdaY/Jvxz2gXq2nNaiSa7ntlxeSXteiA+yDAx2Sd1eDII6s02D8yw3Uuoh1J4xo9TNvCio00KmugzvKQPVuu0rv2+U/MOcfjsvf3Y9p96ir1WRRRgL4fM+XsBozw79Ji8K6ExKaLYk+S0mBHWkGI7XJQvi1hSqYHlIDRXtlFHcnBocok93ZtnxRPJU0ff3OI1leqmXM8gI5mn8uIeKc8emJuUw5GE5xnlglKzdONFDyJxCqdu6UM71lvPrOIGP3ompFUq9cMREMX8XHil1gcSy4tAp6603TC/HE/PncBUcNZrC/FNY5IdMpAgh0nbVV99kAI1q1T1+cTyslRUM3/+FGNRS3DwcfCMcLde2NDjTjqf+U1fbfzl46L4Qd4dnYTP1FqYPQ8cL2r0Lm4gZbVCYv1wJs3ZVvyU1g8Yu2Wm7UHzMYZtLxWQCpErZL1irynwzUzlsHWdDg5f6SbeYxJCqJ/r4IPqibtKeYh9lJJHdo1vYg3gr9QB5ivfJhDrP1kCOuu5qZ6krC2AUNTVmjRvmB5B0f/K+AzvadhB213mhuCWW8FKNfoTPEfTw+XdaX+PlRSFND90o/XjoECde0UZL8CP/3KC3rO597RIQiRlnFooGVSbRoJ5XIpZyS3YBRfwsqKKS/pn0rDAbWis="
+    matrix:
+        - VERSION=14.04
+        - VERSION=16.04
+        - VERSION=18.04
+script:
+    - docker build -t $ID/dev-vim:$TAG-ub$VERSION --build-arg VERSION=$VERSION
+after_success:
+    - docker images
+before_deploy:
+    - docker login -u $ID -p $KEY
+deploy:
+    provider: script
+    script: docker push $ID/dev-vim:$TAG-ub$VERSION
+    on:
+        branch: master
