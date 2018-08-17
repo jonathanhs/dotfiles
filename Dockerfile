@@ -1,7 +1,7 @@
 # VERSION 0.1
 
-ARG image
-FROM $image
+ARG VERSION
+FROM ubuntu:$VERSION
 LABEL maintainer="jonathan.hadisuryo@gmail.com"
 
 # install basic packages
