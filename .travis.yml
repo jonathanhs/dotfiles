@@ -4,19 +4,19 @@ services:
 env:
     global:
         - TAG=0.1
-        - DOCKER_ID=jonathanhs
+        - D_ID=jonathanhs
     matrix:
         - VERSION=14.04
         - VERSION=16.04
         - VERSION=18.04
 script:
-    - docker build -t jonathanhs/dev-vim:$TAG-ub$VERSION --build-arg VERSION=$VERSION .
+    - docker build -t $D_ID/dev-vim:$TAG-ub$VERSION --build-arg VERSION=$VERSION .
 after_success:
     - docker images
 before_deploy:
     - echo "$DOCKER_KEY" | docker login -u "$DOCKER_ID" --password-stdin
 deploy:
     provider: script
-    script: docker push jonathanhs/dev-vim:$TAG-ub$VERSION
+    script: docker push $D_ID/dev-vim:$TAG-ub$VERSION
     on:
         branch: master
