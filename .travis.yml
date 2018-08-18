@@ -14,7 +14,7 @@ script:
 after_success:
     - docker images
 before_deploy:
-    - echo "$DOCKER_KEY" | docker login -u "$DOCKER_ID" --password-stdin
+    - echo "$DOCKER_KEY" | docker login -u "$D_ID" --password-stdin
 deploy:
     provider: script
     script: docker push $D_ID/dev-vim:$TAG-ub$VERSION
