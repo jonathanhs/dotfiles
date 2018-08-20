@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/jonathanhs/dotfiles.svg?branch=master)](https://travis-ci.com/jonathanhs/dotfiles)
+
 `only for debian based distros!` `please update name and email in .gitconfig!`
 
 ## Local setup
