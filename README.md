@@ -1,4 +1,4 @@
-`only for debian based distros!` `please update docker id in .bashrc!` `please update name and email in .gitconfig!`
+`only for debian based distros!` `please update name and email in .gitconfig!`
 
 ## Local setup
 
@@ -8,11 +8,11 @@
 
 ## Docker setup
 
-Dockerized dev environment with Vim support and all required plugins.
+Dockerized dev environment with vim support and all required plugins.
 
 Installed plugins and configuration: https://github.com/jonathanhs/dotfiles/blob/master/.vimrc
 
-**Tags:** `0.1-ub14.04-stable` `0.1-ub16.04-stable` `0.1-python2` `0.1-python3`
+**Tags:** `0.1-ub14.04` `0.1-ub16.04` `0.1-ub18.04`
 
 **Usage:**
 
@@ -32,6 +32,6 @@ Installed plugins and configuration: https://github.com/jonathanhs/dotfiles/blob
 > cp [path/to/your/.vimrc] .
 
 # build and run new docker image
-> docker build -t my-dev-vim --build-arg image=ubuntu:16.04 .
+> docker build -t my-dev-vim --build-arg VERSION=18.04 .
 > docker run -it my-dev-vim bash
 ```
