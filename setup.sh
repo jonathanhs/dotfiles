@@ -1,8 +1,7 @@
 #!/bin/bash
 
-sudo apt-get install -y vim
-sudo apt-get install -y git
-sudo apt-get install -y tmux
+sudo apt-get update
+sudo apt-get install -y git tmux vim
 
 # copy and merge all dotfiles
 cp -r .vim* ~
@@ -13,10 +12,3 @@ cp .gitignore_global ~
 if ! grep -r "add this block at the end of the file" ~/.bashrc; then
     cat .bashrc >> ~/.bashrc
 fi
-
-# install vim plugins
-mkdir ~/.vim/bundle
-cd ~/.vim/bundle
-git clone https://github.com/VundleVim/Vundle.vim.git
-cd ~
-vim +PluginInstall +qall
