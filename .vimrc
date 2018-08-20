@@ -1,4 +1,13 @@
 """"" vundle vim plugins
+" prepare vundle if it doesn't exist
+let mighty_vundle=1
+let readme_vundle=expand('~/.vim/bundle/Vundle.vim/README.md')
+if !filereadable(readme_vundle)
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    let mighty_vundle=0
+endif
+
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -60,6 +69,11 @@ Plugin 'vim-syntastic/syntastic'                        " syntax checking plugin
 "Plugin 'python-mode/python-mode'                       vim python mode
 "Plugin 'terryma/vim-multiple-cursors'                  vim multiple cursors
 "Plugin 'Valloric/YouCompleteMe'                        code-completion engine
+
+" auto-install vim plugins
+if mighty_vundle == 0
+    :PluginInstall
+endif
 
 call vundle#end()
 filetype plugin indent on
