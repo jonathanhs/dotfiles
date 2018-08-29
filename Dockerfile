@@ -5,7 +5,9 @@ FROM ubuntu:$VERSION
 LABEL maintainer="jonathan.hadisuryo@gmail.com"
 
 # install basic packages
-RUN apt-get update && apt-get install -y git tmux vim
+RUN apt-get update && apt-get install -y git software-properties-common tmux vim \
+    && apt-get -y autoremove && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # set new work environment
 ENV HOME /root
